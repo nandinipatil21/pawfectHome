@@ -1,0 +1,281 @@
+/* ==========================================
+   PAWFECT HOME
+   REUSABLE UI COMPONENTS
+========================================== */
+
+/* Buttons */
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 21px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.button span {
+  font-size: 15px;
+  transition: transform var(--transition);
+}
+
+.button:hover span {
+  transform: translate(2px, -2px);
+}
+
+.button-dark {
+  background: var(--color-forest);
+  color: var(--color-paper);
+}
+
+.button-dark:hover {
+  background: var(--color-green);
+}
+
+.button-cream {
+  background: var(--color-cream);
+  color: var(--color-forest);
+}
+
+.button-cream:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+.nav-cta {
+  min-height: 41px;
+  padding: 9px 15px;
+  font-size: 10px;
+}
+
+/* Pet cards */
+
+.pet-card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--color-paper);
+  border: 1px solid rgba(38, 61, 48, 0.08);
+  border-radius: 12px;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card);
+}
+
+.pet-photo-wrap {
+  position: relative;
+  height: 270px;
+  overflow: hidden;
+  background: var(--color-sand);
+}
+
+.pet-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.pet-card:hover .pet-photo {
+  transform: scale(1.045);
+}
+
+.pet-status {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  max-width: calc(100% - 72px);
+  padding: 6px 10px;
+  overflow: hidden;
+  background: rgba(255, 254, 250, 0.96);
+  color: var(--color-forest);
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  background: rgba(255, 254, 250, 0.96);
+  color: var(--color-forest);
+  border: 1px solid rgba(38, 61, 48, 0.08);
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.favorite-button:hover {
+  transform: scale(1.07);
+  background: white;
+}
+
+.favorite-button[aria-pressed="true"] {
+  background: #f7e7e2;
+  color: #a44747;
+}
+
+.favorite-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pet-card-body {
+  padding: 19px 18px 18px;
+}
+
+.pet-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.pet-name {
+  margin: 0;
+  color: var(--color-forest);
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.pet-gender {
+  flex-shrink: 0;
+  padding: 5px 8px;
+  background: var(--color-sage);
+  color: var(--color-forest);
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.pet-breed {
+  margin: 0 0 15px;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+
+.pet-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 19px;
+}
+
+.pet-meta span {
+  padding: 6px 9px;
+  background: var(--color-cream);
+  color: #60665c;
+  border-radius: 4px;
+  font-size: 9px;
+}
+
+.pet-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pet-location {
+  min-width: 0;
+  color: var(--color-muted);
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.pet-adopt-button {
+  flex-shrink: 0;
+  padding: 8px 11px;
+  background: var(--color-forest);
+  color: white;
+  border: 1px solid var(--color-forest);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.pet-adopt-button:hover {
+  background: var(--color-green);
+  border-color: var(--color-green);
+}
+
+/* Image fallback */
+
+.image-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 20px;
+  background: var(--color-sage);
+  color: var(--color-forest);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Toast notification */
+
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 2000;
+  width: min(360px, calc(100% - 32px));
+  padding: 15px 18px;
+  background: var(--color-forest);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity var(--transition),
+    transform var(--transition),
+    visibility var(--transition);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}

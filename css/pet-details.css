@@ -1,0 +1,888 @@
+/* =========================================
+   PAWFECT HOME — PET DETAILS
+========================================= */
+
+.pet-details-page {
+  --details-ivory: #f8f7f2;
+  --details-white: #ffffff;
+  --details-green: #234b3b;
+  --details-green-dark: #19382c;
+  --details-green-soft: #e9f0e9;
+  --details-text: #26352d;
+  --details-muted: #747b73;
+  --details-border: #e7e7de;
+  --details-radius: 20px;
+
+  background: var(--details-ivory);
+  color: var(--details-text);
+  min-height: 100vh;
+}
+
+.pet-details-page *,
+.pet-details-page *::before,
+.pet-details-page *::after {
+  box-sizing: border-box;
+}
+
+.pet-details-page a {
+  text-decoration: none;
+}
+
+.pet-details-page button,
+.pet-details-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pet-details-page a:focus-visible,
+.pet-details-page button:focus-visible {
+  outline: 3px solid #7caa8b;
+  outline-offset: 4px;
+}
+
+/* Header */
+
+.details-header {
+  position: relative;
+  z-index: 20;
+  background: rgba(248, 247, 242, 0.96);
+  border-bottom: 1px solid var(--details-border);
+}
+
+.details-header-inner {
+  width: min(1200px, calc(100% - 64px));
+  min-height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.details-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--details-text);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+  white-space: nowrap;
+}
+
+.details-brand strong {
+  color: var(--details-green);
+  font-weight: 750;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 12px;
+  background: var(--details-green);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.details-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.details-nav a {
+  color: #626b62;
+  font-size: 13px;
+  font-weight: 550;
+  transition: color 0.2s ease;
+}
+
+.details-nav a:hover,
+.details-nav a.active {
+  color: var(--details-green);
+}
+
+.details-nav a.active {
+  font-weight: 750;
+}
+
+.details-nav .nav-login {
+  border: 1px solid #d5dbd2;
+  border-radius: 999px;
+  padding: 11px 19px;
+  color: var(--details-green);
+}
+
+.details-nav .nav-login:hover {
+  background: var(--details-green);
+  border-color: var(--details-green);
+  color: white;
+}
+
+.details-menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--details-border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.details-menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 2px;
+  background: var(--details-green);
+}
+
+/* Main layout */
+
+.details-main {
+  min-height: 70vh;
+  padding: 24px 0 88px;
+}
+
+.details-container {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.details-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 32px;
+  color: var(--details-muted);
+  font-size: 12px;
+}
+
+.details-breadcrumb a {
+  color: var(--details-muted);
+}
+
+.details-breadcrumb a:hover {
+  color: var(--details-green);
+}
+
+.details-breadcrumb > span:last-child {
+  color: var(--details-text);
+  font-weight: 650;
+}
+
+.pet-details-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  align-items: start;
+  gap: clamp(36px, 5.5vw, 76px);
+}
+
+.pet-visual-column,
+.pet-information-column {
+  min-width: 0;
+}
+
+.pet-main-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 0.91;
+  border-radius: var(--details-radius);
+  background: #e7e8df;
+}
+
+.pet-main-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pet-status-badge {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  max-width: calc(100% - 100px);
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  background: rgba(248, 247, 242, 0.94);
+  color: var(--details-green);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1px;
+}
+
+.pet-status-badge.status-unavailable {
+  background: #f7e7e4;
+  color: #8c3930;
+}
+
+.pet-favorite-button {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--details-green);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.pet-favorite-button:hover {
+  transform: scale(1.06);
+}
+
+.favorite-heart {
+  font-size: 27px;
+  line-height: 1;
+}
+
+.pet-favorite-button.is-favorite {
+  background: var(--details-green);
+  color: white;
+}
+
+.pet-favorite-button.is-favorite .favorite-heart {
+  font-size: 23px;
+}
+
+.pet-image-caption {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 15px;
+  color: var(--details-muted);
+  font-size: 12px;
+}
+
+.caption-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #7caa8b;
+}
+
+.pet-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid #e1e7dc;
+  border-radius: 16px;
+  background: #eef1e9;
+}
+
+.pet-note-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #dce7d9;
+  color: var(--details-green);
+  font-size: 18px;
+}
+
+.pet-note h3 {
+  margin: 2px 0 7px;
+  color: var(--details-green-dark);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.pet-note p {
+  margin: 0;
+  color: #687367;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Pet information */
+
+.pet-information-column {
+  padding-top: 12px;
+}
+
+.details-eyebrow {
+  margin: 0 0 15px;
+  color: #64816b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+
+.pet-details-name {
+  margin: 0;
+  color: var(--details-green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4.2vw, 57px);
+  font-weight: 500;
+  letter-spacing: -1.8px;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.pet-short-description {
+  max-width: 490px;
+  margin: 17px 0 0;
+  color: #69736a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.pet-location-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #68736a;
+  font-size: 12px;
+}
+
+.pet-location-line > span:first-child {
+  color: var(--details-green);
+  font-size: 20px;
+}
+
+.pet-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 29px;
+}
+
+.pet-fact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 76px;
+  padding: 15px;
+  border: 1px solid var(--details-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.pet-fact-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--details-green-soft);
+  color: var(--details-green);
+  font-size: 21px;
+}
+
+.pet-fact > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.pet-fact-label {
+  color: var(--details-muted);
+  font-size: 10px;
+}
+
+.pet-fact strong {
+  color: var(--details-text);
+  font-size: 12px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.pet-about-section {
+  margin-top: 34px;
+}
+
+.pet-about-section h2,
+.pet-personality-section h2 {
+  margin: 0 0 12px;
+  color: var(--details-green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+
+.pet-about-section p {
+  margin: 0;
+  color: #687168;
+  font-size: 13px;
+  line-height: 1.95;
+  overflow-wrap: anywhere;
+}
+
+.pet-personality-section {
+  margin-top: 28px;
+}
+
+.pet-personality-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.personality-tag {
+  padding: 9px 13px;
+  border: 1px solid #dfe7dc;
+  border-radius: 999px;
+  background: #edf2e9;
+  color: #3b5d45;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.pet-adoption-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 30px;
+  padding: 17px 18px;
+  border: 1px solid #dce6d9;
+  border-radius: 14px;
+  background: #f0f4ed;
+}
+
+.notice-indicator {
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #578663;
+}
+
+.pet-adoption-notice.notice-unavailable {
+  border-color: #ead8d4;
+  background: #fbefec;
+}
+
+.pet-adoption-notice.notice-unavailable .notice-indicator {
+  background: #a34a40;
+}
+
+.pet-adoption-notice strong {
+  display: block;
+  color: var(--details-green-dark);
+  font-size: 12px;
+}
+
+.pet-adoption-notice p {
+  margin: 5px 0 0;
+  color: #687168;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.pet-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.pet-adopt-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 54px;
+  padding: 15px 22px;
+  border: 1px solid var(--details-green);
+  border-radius: 12px;
+  background: var(--details-green);
+  color: white;
+  font-size: 13px;
+  font-weight: 750;
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pet-adopt-button:hover {
+  transform: translateY(-1px);
+  background: var(--details-green-dark);
+  color: white;
+}
+
+.pet-adopt-button span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.pet-adopt-button.is-disabled {
+  border-color: #b8beb7;
+  background: #b8beb7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pet-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 45px;
+  border: 1px solid var(--details-border);
+  border-radius: 12px;
+  color: var(--details-green);
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+
+.pet-back-button:hover {
+  background: white;
+}
+
+.pet-back-button span {
+  font-size: 17px;
+}
+
+.pet-action-footnote {
+  margin: 15px 0 0;
+  color: var(--details-muted);
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Empty states */
+
+.pet-message-state {
+  max-width: 570px;
+  margin: 70px auto 30px;
+  padding: 55px 35px;
+  border: 1px solid var(--details-border);
+  border-radius: 22px;
+  background: var(--details-white);
+  text-align: center;
+}
+
+.pet-message-symbol {
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 23px;
+  border-radius: 20px;
+  background: var(--details-green-soft);
+  color: var(--details-green);
+  font-size: 32px;
+}
+
+.pet-message-state .details-eyebrow {
+  margin-bottom: 10px;
+}
+
+.pet-message-state h1 {
+  margin: 0;
+  color: var(--details-green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(29px, 4vw, 39px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.pet-message-state > p:not(.details-eyebrow) {
+  margin: 17px 0 25px;
+  color: var(--details-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.pet-message-state .pet-adopt-button {
+  display: inline-flex;
+}
+
+/* Footer */
+
+.details-footer {
+  border-top: 1px solid var(--details-border);
+  background: #f2f1e9;
+}
+
+.details-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  width: min(1200px, calc(100% - 64px));
+  min-height: 95px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  font-size: 17px;
+}
+
+.footer-brand .brand-mark {
+  width: 32px;
+  height: 32px;
+  font-size: 19px;
+}
+
+.details-footer-inner > p,
+.details-footer-inner > span {
+  margin: 0;
+  color: var(--details-muted);
+  font-size: 11px;
+}
+
+/* Toast */
+
+.details-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 14px 19px;
+  border: 1px solid #416451;
+  border-radius: 12px;
+  background: var(--details-green-dark);
+  color: white;
+  font-size: 12px;
+  line-height: 1.6;
+  box-shadow: 0 12px 35px rgba(25, 56, 44, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.details-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .details-header-inner,
+  .details-container,
+  .details-footer-inner {
+    width: min(100% - 40px, 720px);
+  }
+
+  .details-nav {
+    gap: 19px;
+  }
+
+  .details-nav a {
+    font-size: 12px;
+  }
+
+  .pet-details-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 30px;
+  }
+
+  .pet-details-name {
+    font-size: 40px;
+  }
+
+  .pet-fact {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .pet-fact-icon {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .pet-note {
+    padding: 17px;
+  }
+}
+
+@media (max-width: 680px) {
+  .details-header-inner {
+    min-height: 70px;
+    width: calc(100% - 36px);
+  }
+
+  .details-brand {
+    font-size: 18px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .details-menu-toggle {
+    display: block;
+  }
+
+  .details-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 18px 18px;
+    border-bottom: 1px solid var(--details-border);
+    background: var(--details-ivory);
+    box-shadow: 0 15px 25px rgba(30, 45, 35, 0.06);
+  }
+
+  .details-nav.is-open {
+    display: flex;
+  }
+
+  .details-nav a {
+    padding: 14px 8px;
+    border-bottom: 1px solid var(--details-border);
+    font-size: 13px;
+  }
+
+  .details-nav .nav-login {
+    margin-top: 10px;
+    padding: 12px 15px;
+    border: 1px solid #d5dbd2;
+    text-align: center;
+  }
+
+  .details-main {
+    padding: 20px 0 55px;
+  }
+
+  .details-container,
+  .details-footer-inner {
+    width: calc(100% - 36px);
+  }
+
+  .details-breadcrumb {
+    gap: 8px;
+    margin-bottom: 23px;
+    font-size: 11px;
+  }
+
+  .pet-details-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 29px;
+  }
+
+  .pet-main-image-wrap {
+    aspect-ratio: 1 / 0.93;
+    border-radius: 17px;
+  }
+
+  .pet-status-badge {
+    top: 15px;
+    left: 15px;
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .pet-favorite-button {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .pet-note {
+    margin-top: 23px;
+  }
+
+  .pet-information-column {
+    padding-top: 0;
+  }
+
+  .pet-details-name {
+    font-size: clamp(37px, 10vw, 49px);
+  }
+
+  .pet-short-description {
+    margin-top: 13px;
+    font-size: 13px;
+  }
+
+  .pet-facts-grid {
+    gap: 10px;
+    margin-top: 23px;
+  }
+
+  .pet-fact {
+    min-height: 72px;
+    padding: 12px;
+  }
+
+  .pet-fact strong {
+    font-size: 11px;
+  }
+
+  .pet-about-section {
+    margin-top: 28px;
+  }
+
+  .pet-about-section h2,
+  .pet-personality-section h2 {
+    font-size: 22px;
+  }
+
+  .pet-about-section p {
+    font-size: 12px;
+  }
+
+  .pet-message-state {
+    margin: 35px auto 10px;
+    padding: 40px 22px;
+  }
+
+  .details-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 24px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pet-details-page *,
+  .pet-details-page *::before,
+  .pet-details-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

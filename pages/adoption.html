@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta
+      name="description"
+      content="Apply to adopt a pet through Pawfect Home. Tell us about yourself and the home you can offer."
+    />
+
+    <title>Adoption Application | Pawfect Home</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/adoption.css" />
+  </head>
+
+  <body class="adoption-page">
+    <header class="adoption-header">
+      <div class="adoption-header-inner">
+        <a
+          href="../index.html"
+          class="adoption-brand"
+          aria-label="Pawfect Home homepage"
+        >
+          <span class="adoption-brand-mark" aria-hidden="true">p.</span>
+          <span>Pawfect <strong>Home</strong></span>
+        </a>
+
+        <nav
+          class="adoption-nav"
+          id="adoption-nav"
+          aria-label="Main navigation"
+        >
+          <a href="../index.html">Home</a>
+          <a href="pets.html">Find a Pet</a>
+          <a href="my-applications.html">My Applications</a>
+          <a href="login.html" class="adoption-nav-login">Sign In</a>
+        </nav>
+
+        <button
+          class="adoption-menu-toggle"
+          id="adoption-menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="adoption-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="adoption-main">
+      <div class="adoption-container">
+        <nav class="adoption-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>/</span>
+          <a href="pets.html">Find a Pet</a>
+          <span>/</span>
+          <span>Adoption Application</span>
+        </nav>
+
+        <section class="adoption-page-intro">
+          <p class="adoption-eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+          <h1>A little about you.<br /><span>A lifetime for them.</span></h1>
+          <p>
+            Tell us about yourself and the home you can offer. Your answers help
+            us understand whether this adoption could be the right match.
+          </p>
+        </section>
+
+        <div class="adoption-layout">
+          <section class="adoption-form-column">
+            <form id="adoption-form" novalidate>
+              <div
+                id="form-error-summary"
+                class="form-error-summary"
+                role="alert"
+                hidden
+              >
+                <strong>Please check your application.</strong>
+                <p id="form-error-summary-text"></p>
+              </div>
+
+              <!-- Selected pet -->
+              <section class="application-section selected-pet-section">
+                <div class="section-heading">
+                  <span class="section-number">01</span>
+                  <div>
+                    <h2>Your future companion</h2>
+                    <p>Confirm which pet you would like to adopt.</p>
+                  </div>
+                </div>
+
+                <div id="selected-pet-card" class="selected-pet-card">
+                  <div class="selected-pet-loading">Loading pet details...</div>
+                </div>
+
+                <input type="hidden" id="application-pet-id" name="petId" />
+
+                <p id="pet-selection-error" class="field-error" hidden>
+                  Please select an available pet before continuing.
+                </p>
+
+                <a href="pets.html" class="change-pet-link"
+                  >Looking for another pet? Browse all pets →</a
+                >
+              </section>
+
+              <!-- Applicant details -->
+              <section class="application-section">
+                <div class="section-heading">
+                  <span class="section-number">02</span>
+                  <div>
+                    <h2>About you</h2>
+                    <p>How can the adoption team reach you?</p>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field full-width">
+                    <label for="applicant-name">Full name <span>*</span></label>
+                    <input
+                      type="text"
+                      id="applicant-name"
+                      name="applicantName"
+                      placeholder="Enter your full name"
+                      autocomplete="name"
+                      minlength="2"
+                      maxlength="100"
+                      required
+                    />
+                    <small
+                      class="field-error"
+                      data-error-for="applicant-name"
+                    ></small>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="applicant-email"
+                      >Email address <span>*</span></label
+                    >
+                    <input
+                      type="email"
+                      id="applicant-email"
+                      name="email"
+                      placeholder="you@example.com"
+                      autocomplete="email"
+                      maxlength="254"
+                      required
+                    />
+                    <small
+                      class="field-error"
+                      data-error-for="applicant-email"
+                    ></small>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="applicant-phone"
+                      >Phone number <span>*</span></label
+                    >
+                    <input
+                      type="tel"
+                      id="applicant-phone"
+                      name="phone"
+                      placeholder="10-digit mobile number"
+                      autocomplete="tel"
+                      inputmode="numeric"
+                      maxlength="15"
+                      required
+                    />
+                    <small class="field-hint"
+                      >Include your country code if needed.</small
+                    >
+                    <small
+                      class="field-error"
+                      data-error-for="applicant-phone"
+                    ></small>
+                  </div>
+
+                  <div class="form-field full-width">
+                    <label for="applicant-address"
+                      >Full residential address <span>*</span></label
+                    >
+                    <textarea
+                      id="applicant-address"
+                      name="address"
+                      placeholder="Building, street, area, city, state and PIN code"
+                      autocomplete="street-address"
+                      rows="3"
+                      minlength="10"
+                      maxlength="400"
+                      required
+                    ></textarea>
+                    <small
+                      class="field-error"
+                      data-error-for="applicant-address"
+                    ></small>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Home details -->
+              <section class="application-section">
+                <div class="section-heading">
+                  <span class="section-number">03</span>
+                  <div>
+                    <h2>Your home and household</h2>
+                    <p>
+                      Help us understand the environment your pet will live in.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="home-type">Type of home <span>*</span></label>
+                    <select id="home-type" name="homeType" required>
+                      <option value="">Choose home type</option>
+                      <option value="Apartment">Apartment / Flat</option>
+                      <option value="Independent house">
+                        Independent house
+                      </option>
+                      <option value="Farmhouse">Farmhouse</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="home-type"
+                    ></small>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="ownership">Home ownership <span>*</span></label>
+                    <select id="ownership" name="ownership" required>
+                      <option value="">Choose one</option>
+                      <option value="Owned">Owned</option>
+                      <option value="Rented">Rented</option>
+                      <option value="Family home">Family home</option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="ownership"
+                    ></small>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="household-members"
+                      >People in household <span>*</span></label
+                    >
+                    <select
+                      id="household-members"
+                      name="householdMembers"
+                      required
+                    >
+                      <option value="">Select number</option>
+                      <option value="1">1 person</option>
+                      <option value="2">2 people</option>
+                      <option value="3">3 people</option>
+                      <option value="4">4 people</option>
+                      <option value="5+">5 or more people</option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="household-members"
+                    ></small>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="children-at-home"
+                      >Children at home? <span>*</span></label
+                    >
+                    <select
+                      id="children-at-home"
+                      name="childrenAtHome"
+                      required
+                    >
+                      <option value="">Choose one</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="children-at-home"
+                    ></small>
+                  </div>
+
+                  <div class="form-field full-width">
+                    <label for="existing-pets"
+                      >Do you currently have pets? <span>*</span></label
+                    >
+                    <select id="existing-pets" name="existingPets" required>
+                      <option value="">Choose one</option>
+                      <option value="No">No</option>
+                      <option value="Yes, dogs">Yes, dogs</option>
+                      <option value="Yes, cats">Yes, cats</option>
+                      <option value="Yes, other animals">
+                        Yes, other animals
+                      </option>
+                      <option value="Yes, multiple types">
+                        Yes, multiple types
+                      </option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="existing-pets"
+                    ></small>
+                  </div>
+
+                  <div class="form-field full-width">
+                    <label for="rental-permission"
+                      >If renting, are pets permitted by your landlord?</label
+                    >
+                    <select id="rental-permission" name="rentalPermission">
+                      <option value="Not applicable">Not applicable</option>
+                      <option value="Yes">Yes</option>
+                      <option value="Not yet confirmed">
+                        Not yet confirmed
+                      </option>
+                      <option value="No">No</option>
+                    </select>
+                    <small class="field-hint"
+                      >Please confirm permission before adopting a pet in a
+                      rented home.</small
+                    >
+                  </div>
+                </div>
+              </section>
+
+              <!-- Readiness -->
+              <section class="application-section">
+                <div class="section-heading">
+                  <span class="section-number">04</span>
+                  <div>
+                    <h2>Life with a pet</h2>
+                    <p>Tell us how you plan to care for your new companion.</p>
+                  </div>
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field full-width">
+                    <label for="pet-experience"
+                      >Previous pet experience <span>*</span></label
+                    >
+                    <select id="pet-experience" name="petExperience" required>
+                      <option value="">Choose one</option>
+                      <option value="First-time pet owner">
+                        First-time pet owner
+                      </option>
+                      <option value="Previously owned pets">
+                        Previously owned pets
+                      </option>
+                      <option value="Currently own pets">
+                        Currently own pets
+                      </option>
+                      <option value="Experienced in pet care">
+                        Experienced in pet care
+                      </option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="pet-experience"
+                    ></small>
+                  </div>
+
+                  <div class="form-field full-width">
+                    <label for="daily-availability"
+                      >How much time can you spend with your pet daily?
+                      <span>*</span></label
+                    >
+                    <select
+                      id="daily-availability"
+                      name="dailyAvailability"
+                      required
+                    >
+                      <option value="">Choose one</option>
+                      <option value="Less than 2 hours">
+                        Less than 2 hours
+                      </option>
+                      <option value="2–4 hours">2–4 hours</option>
+                      <option value="4–6 hours">4–6 hours</option>
+                      <option value="More than 6 hours">
+                        More than 6 hours
+                      </option>
+                      <option value="Most of the day">Most of the day</option>
+                    </select>
+                    <small
+                      class="field-error"
+                      data-error-for="daily-availability"
+                    ></small>
+                  </div>
+
+                  <div class="form-field full-width">
+                    <label for="adoption-reason"
+                      >Why would you like to adopt this pet?
+                      <span>*</span></label
+                    >
+                    <textarea
+                      id="adoption-reason"
+                      name="adoptionReason"
+                      placeholder="Tell us what makes this pet a good match for you..."
+                      rows="4"
+                      minlength="20"
+                      maxlength="1200"
+                      required
+                    ></textarea>
+                    <small class="field-hint"
+                      >Write at least 20 characters.</small
+                    >
+                    <small
+                      class="field-error"
+                      data-error-for="adoption-reason"
+                    ></small>
+                  </div>
+
+                  <div class="form-field full-width">
+                    <label for="care-plan"
+                      >How will you manage feeding, exercise, veterinary care
+                      and expenses? <span>*</span></label
+                    >
+                    <textarea
+                      id="care-plan"
+                      name="carePlan"
+                      placeholder="Describe your plan for daily care and long-term responsibilities..."
+                      rows="4"
+                      minlength="20"
+                      maxlength="1200"
+                      required
+                    ></textarea>
+                    <small
+                      class="field-error"
+                      data-error-for="care-plan"
+                    ></small>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Consent -->
+              <section class="application-section application-consent-section">
+                <div class="section-heading">
+                  <span class="section-number">05</span>
+                  <div>
+                    <h2>Before you submit</h2>
+                    <p>Adoption is a long-term responsibility.</p>
+                  </div>
+                </div>
+
+                <label class="consent-option" for="adoption-consent">
+                  <input
+                    type="checkbox"
+                    id="adoption-consent"
+                    name="consent"
+                    required
+                  />
+                  <span>
+                    I confirm that the information provided is accurate. I
+                    understand that submitting this application does not
+                    guarantee adoption, and that I am responsible for the pet's
+                    ongoing care if the adoption is approved. <strong>*</strong>
+                  </span>
+                </label>
+                <small
+                  class="field-error"
+                  data-error-for="adoption-consent"
+                ></small>
+
+                <p class="privacy-note">
+                  This demo stores applications in this browser's Local Storage.
+                  It does not securely transmit your application to an adoption
+                  organization.
+                </p>
+              </section>
+
+              <div class="application-submit-area">
+                <button
+                  type="submit"
+                  id="submit-application"
+                  class="application-submit-button"
+                >
+                  Submit Adoption Application
+                  <span aria-hidden="true">→</span>
+                </button>
+                <p>Fields marked with * are required.</p>
+              </div>
+            </form>
+          </section>
+
+          <!-- Sidebar -->
+          <aside class="adoption-sidebar">
+            <div class="sidebar-card sidebar-selected-pet">
+              <p class="sidebar-eyebrow">YOUR POTENTIAL MATCH</p>
+              <div id="sidebar-pet-image-wrap" class="sidebar-pet-image-wrap">
+                <img id="sidebar-pet-image" src="" alt="" hidden />
+                <div
+                  id="sidebar-pet-placeholder"
+                  class="sidebar-pet-placeholder"
+                  aria-hidden="true"
+                >
+                  ♥
+                </div>
+              </div>
+              <h2 id="sidebar-pet-name">Your selected pet</h2>
+              <p id="sidebar-pet-meta">Pet details will appear here.</p>
+              <span id="sidebar-pet-status" class="sidebar-pet-status"
+                >Checking availability</span
+              >
+              <a href="pets.html" class="sidebar-browse-link"
+                >Explore other pets →</a
+              >
+            </div>
+
+            <div class="sidebar-card sidebar-steps-card">
+              <p class="sidebar-eyebrow">WHAT HAPPENS NEXT</p>
+
+              <div class="sidebar-step">
+                <span>1</span>
+                <div>
+                  <strong>Submit your application</strong>
+                  <p>Share your details and care plans.</p>
+                </div>
+              </div>
+
+              <div class="sidebar-step">
+                <span>2</span>
+                <div>
+                  <strong>Application review</strong>
+                  <p>The adoption team can review your information.</p>
+                </div>
+              </div>
+
+              <div class="sidebar-step">
+                <span>3</span>
+                <div>
+                  <strong>Meet and plan</strong>
+                  <p>Discuss compatibility and the next steps.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-help">
+              <span aria-hidden="true">i</span>
+              <p>
+                Take your time. A thoughtful application helps set both you and
+                your future companion up for success.
+              </p>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Successful submission -->
+        <section id="application-success" class="application-success" hidden>
+          <div class="success-symbol" aria-hidden="true">✓</div>
+          <p class="adoption-eyebrow">APPLICATION SAVED</p>
+          <h2>Your next chapter starts here.</h2>
+          <p id="success-message">Your adoption application has been saved.</p>
+
+          <div class="success-reference">
+            <span>Application reference</span>
+            <strong id="success-application-id"></strong>
+          </div>
+
+          <p class="success-status">Status: <strong>Pending</strong></p>
+
+          <div class="success-actions">
+            <a href="my-applications.html" class="application-submit-button">
+              View My Applications <span aria-hidden="true">→</span>
+            </a>
+            <a href="pets.html" class="success-secondary-link"
+              >Explore more pets</a
+            >
+          </div>
+
+          <p class="success-storage-note">
+            This reference is saved in this browser. In this demo, the
+            application is not sent to an organization.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="adoption-footer">
+      <div class="adoption-footer-inner">
+        <a href="../index.html" class="adoption-brand">
+          <span class="adoption-brand-mark" aria-hidden="true">p.</span>
+          <span>Pawfect <strong>Home</strong></span>
+        </a>
+        <p>Every adoption begins with a connection.</p>
+        <span>© <span id="adoption-footer-year"></span> Pawfect Home</span>
+      </div>
+    </footer>
+
+    <div
+      id="adoption-toast"
+      class="adoption-toast"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <script src="../js/auth-navigation.js" defer></script>
+    <script src="../js/auth-guard.js" defer></script>
+    <script src="../js/adoption.js" defer></script>
+  </body>
+</html>

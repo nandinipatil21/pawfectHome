@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7f2">
+  <meta name="description"
+    content="Meet your future companion on Pawfect Home. Learn about their personality, age, breed, and adoption details.">
+
+  <title>Pet Details | Pawfect Home</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/pet-details.css">
+</head>
+
+<body class="pet-details-page">
+
+  <header class="details-header">
+    <div class="details-header-inner">
+      <a href="../index.html" class="details-brand" aria-label="Pawfect Home homepage">
+        <span class="brand-mark" aria-hidden="true">p.</span>
+        <span>Pawfect <strong>Home</strong></span>
+      </a>
+
+      <nav class="details-nav" id="details-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="pets.html" class="active" aria-current="page">Find a Pet</a>
+        <a href="my-applications.html">My Applications</a>
+        <a href="login.html" class="nav-login">Sign In</a>
+      </nav>
+
+      <button class="details-menu-toggle" id="details-menu-toggle" type="button" aria-label="Open navigation menu"
+        aria-expanded="false" aria-controls="details-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="details-main">
+    <div class="details-container">
+
+      <nav class="details-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="pets.html">Find a Pet</a>
+        <span>/</span>
+        <span id="breadcrumb-pet-name">Pet Details</span>
+      </nav>
+
+      <section id="pet-details-content" class="pet-details-layout" hidden>
+        <div class="pet-visual-column">
+          <div class="pet-main-image-wrap">
+            <img id="pet-main-image" class="pet-main-image" src="" alt="">
+
+            <span id="pet-status-badge" class="pet-status-badge">
+              Available for adoption
+            </span>
+
+            <button id="pet-favorite-button" class="pet-favorite-button" type="button" aria-label="Add pet to favorites"
+              aria-pressed="false">
+              <span aria-hidden="true" class="favorite-heart">♡</span>
+            </button>
+          </div>
+
+          <div class="pet-image-caption">
+            <span class="caption-dot"></span>
+            <span id="pet-image-caption-text">Meet your future companion</span>
+          </div>
+
+          <div class="pet-note">
+            <span class="pet-note-icon" aria-hidden="true">♥</span>
+            <div>
+              <h3>Every pet deserves a loving home</h3>
+              <p>Adoption is the beginning of a lifelong friendship. Take the time to find the companion who fits your
+                life.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pet-information-column">
+          <p class="details-eyebrow" id="pet-species-label">MEET YOUR NEW BEST FRIEND</p>
+
+          <h1 id="pet-name" class="pet-details-name">Meet your new friend</h1>
+
+          <p id="pet-short-description" class="pet-short-description"></p>
+
+          <div class="pet-location-line">
+            <span aria-hidden="true">⌖</span>
+            <span id="pet-location">Location not specified</span>
+          </div>
+
+          <div class="pet-facts-grid">
+            <div class="pet-fact">
+              <span class="pet-fact-icon" aria-hidden="true">◷</span>
+              <div>
+                <span class="pet-fact-label">Age</span>
+                <strong id="pet-age">Not specified</strong>
+              </div>
+            </div>
+
+            <div class="pet-fact">
+              <span class="pet-fact-icon" aria-hidden="true">♧</span>
+              <div>
+                <span class="pet-fact-label">Breed</span>
+                <strong id="pet-breed">Not specified</strong>
+              </div>
+            </div>
+
+            <div class="pet-fact">
+              <span class="pet-fact-icon" aria-hidden="true">○</span>
+              <div>
+                <span class="pet-fact-label">Gender</span>
+                <strong id="pet-gender">Not specified</strong>
+              </div>
+            </div>
+
+            <div class="pet-fact">
+              <span class="pet-fact-icon" aria-hidden="true">↗</span>
+              <div>
+                <span class="pet-fact-label">Size</span>
+                <strong id="pet-size">Not specified</strong>
+              </div>
+            </div>
+          </div>
+
+          <section class="pet-about-section">
+            <h2>A little about <span id="pet-about-name">this pet</span></h2>
+            <p id="pet-description"></p>
+          </section>
+
+          <section class="pet-personality-section" id="personality-section">
+            <h2>Personality</h2>
+            <div id="pet-personality-tags" class="pet-personality-tags"></div>
+          </section>
+
+          <div class="pet-adoption-notice" id="pet-adoption-notice">
+            <span class="notice-indicator" aria-hidden="true"></span>
+            <div>
+              <strong id="notice-title">Ready to meet?</strong>
+              <p id="notice-description">Start an adoption application to take the next step.</p>
+            </div>
+          </div>
+
+          <div class="pet-action-buttons">
+            <a href="adoption.html" id="adopt-pet-button" class="pet-adopt-button">
+              Start Adoption Application
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="pets.html" class="pet-back-button">
+              <span aria-hidden="true">←</span>
+              Back to all pets
+            </a>
+          </div>
+
+          <p class="pet-action-footnote">
+            An application helps us understand whether you and this pet are a good match.
+          </p>
+        </div>
+      </section>
+
+      <section id="pet-not-found" class="pet-message-state" hidden>
+        <div class="pet-message-symbol" aria-hidden="true">⌕</div>
+        <p class="details-eyebrow">PET NOT FOUND</p>
+        <h1>We couldn't find this companion.</h1>
+        <p>The pet may no longer be listed, or the link may be incomplete. Browse our available pets to find another
+          match.</p>
+        <a href="pets.html" class="pet-adopt-button">
+          Explore available pets <span aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section id="pet-unavailable" class="pet-message-state" hidden>
+        <div class="pet-message-symbol" aria-hidden="true">♥</div>
+        <p class="details-eyebrow">ADOPTION STATUS</p>
+        <h1>This pet is no longer available.</h1>
+        <p>This pet's listing is not currently available for new adoption applications. You can explore other companions
+          looking for a home.</p>
+        <a href="pets.html" class="pet-adopt-button">
+          Find another companion <span aria-hidden="true">→</span>
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="details-footer">
+    <div class="details-footer-inner">
+      <a href="../index.html" class="details-brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">p.</span>
+        <span>Pawfect <strong>Home</strong></span>
+      </a>
+      <p>Every adoption begins with a connection.</p>
+      <span>© <span id="details-footer-year"></span> Pawfect Home</span>
+    </div>
+  </footer>
+
+  <div id="details-toast" class="details-toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/pet-details.js" defer></script>
+</body>
+
+</html>

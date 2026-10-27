@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="View and track your pet adoption applications on Pawfect Home.">
+
+  <title>My Applications | Pawfect Home</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/applications.css">
+
+  <script src="../js/my-applications.js" defer></script>
+</head>
+
+<body class="applications-page">
+
+  <!-- Header -->
+  <header class="applications-header">
+    <div class="applications-header-inner">
+
+      <a href="../index.html" class="applications-brand" aria-label="Pawfect Home homepage">
+        <span class="applications-brand-mark" aria-hidden="true">p.</span>
+        <span>Pawfect <strong>Home</strong></span>
+      </a>
+
+      <button class="applications-menu-toggle" id="applications-menu-toggle" type="button"
+        aria-label="Open navigation menu" aria-controls="applications-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="applications-nav" id="applications-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="pets.html">Find a Pet</a>
+        <a href="login.html" class="applications-nav-login">Login</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="applications-main">
+    <div class="applications-container">
+
+      <!-- Breadcrumb -->
+      <nav class="applications-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">My Applications</span>
+      </nav>
+
+      <!-- Page heading -->
+      <section class="applications-intro">
+        <p class="applications-eyebrow">YOUR ADOPTION JOURNEY</p>
+
+        <h1>
+          My <span>applications.</span>
+        </h1>
+
+        <p>
+          Keep track of the pets you've applied to adopt.
+          Your next chapter with a companion starts here.
+        </p>
+      </section>
+
+      <!-- Statistics -->
+      <section class="applications-stats" aria-label="Application summary">
+
+        <article class="application-stat">
+          <span class="application-stat-icon" aria-hidden="true">▤</span>
+          <div>
+            <p>Total applications</p>
+            <strong id="total-applications">0</strong>
+          </div>
+        </article>
+
+        <article class="application-stat">
+          <span class="application-stat-icon pending-icon" aria-hidden="true">◷</span>
+          <div>
+            <p>Pending review</p>
+            <strong id="pending-applications">0</strong>
+          </div>
+        </article>
+
+        <article class="application-stat">
+          <span class="application-stat-icon approved-icon" aria-hidden="true">✓</span>
+          <div>
+            <p>Approved</p>
+            <strong id="approved-applications">0</strong>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Applications list -->
+      <section class="applications-content">
+
+        <div class="applications-toolbar">
+          <div class="applications-toolbar-heading">
+            <h2>Your applications</h2>
+            <p id="applications-results-count" aria-live="polite">
+              0 applications found
+            </p>
+          </div>
+
+          <div class="applications-controls">
+
+            <div class="applications-search">
+              <label class="visually-hidden" for="application-search">
+                Search applications
+              </label>
+
+              <span aria-hidden="true">⌕</span>
+
+              <input type="search" id="application-search" placeholder="Search pet or reference..." autocomplete="off">
+            </div>
+
+            <div class="applications-filter">
+              <label class="visually-hidden" for="application-status-filter">
+                Filter by status
+              </label>
+
+              <select id="application-status-filter">
+                <option value="all">All statuses</option>
+                <option value="pending">Pending</option>
+                <option value="under_review">Under review</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="withdrawn">Withdrawn</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <div class="applications-message applications-error" id="applications-error" role="alert" hidden>
+          Applications could not be loaded from browser storage.
+          Please check your browser settings and reload the page.
+        </div>
+
+        <!-- Application cards are inserted here -->
+        <div class="applications-list" id="applications-list" aria-live="polite" aria-busy="false"></div>
+
+        <!-- Empty state -->
+        <section class="applications-empty" id="applications-empty" hidden>
+          <div class="applications-empty-illustration" aria-hidden="true">
+            <span>♡</span>
+          </div>
+
+          <p class="applications-eyebrow">A NEW BEGINNING</p>
+
+          <h2 id="applications-empty-title">
+            Your journey starts here.
+          </h2>
+
+          <p id="applications-empty-description">
+            You haven't submitted any adoption applications yet.
+            Meet the pets waiting for a loving home.
+          </p>
+
+          <a href="pets.html" class="applications-primary-button">
+            Explore available pets <span aria-hidden="true">→</span>
+          </a>
+        </section>
+
+      </section>
+
+      <!-- Information note -->
+      <aside class="applications-information">
+        <span class="applications-information-icon" aria-hidden="true">i</span>
+
+        <div>
+          <h3>About application status</h3>
+          <p>
+            A submitted application begins as Pending. The adoption
+            team can review it and update its status. This prototype
+            stores applications in your current browser only.
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="applications-footer">
+    <div class="applications-footer-inner">
+
+      <a href="../index.html" class="applications-brand">
+        <span class="applications-brand-mark" aria-hidden="true">p.</span>
+        <span>Pawfect <strong>Home</strong></span>
+      </a>
+
+      <p>Every pet deserves a place to call home.</p>
+
+      <span>© <span id="applications-footer-year"></span> Pawfect Home</span>
+
+    </div>
+  </footer>
+  <script src="../js/auth-navigation.js" defer></script>
+</body>
+
+</html>

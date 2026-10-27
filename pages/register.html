@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Create Account | Pawfect Home</title>
+  <meta name="description" content="Create your Pawfect Home account and begin your pet adoption journey.">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/auth.css">
+
+  <script src="../js/auth.js" defer></script>
+</head>
+
+<body class="auth-page">
+
+  <header class="auth-header">
+    <a href="../index.html" class="auth-brand" aria-label="Pawfect Home homepage">
+      <span class="auth-brand-icon" aria-hidden="true">P</span>
+      <span>
+        <span class="auth-brand-name">pawfect home</span>
+        <span class="auth-brand-tagline">A home for every heart</span>
+      </span>
+    </a>
+
+    <a href="../index.html" class="auth-back-link">
+      <span aria-hidden="true">&larr;</span> Back to home
+    </a>
+  </header>
+
+  <main class="auth-main auth-register-main">
+
+    <section class="auth-visual" aria-label="Welcome to Pawfect Home">
+      <div class="auth-visual-overlay"></div>
+
+      <div class="auth-visual-content">
+        <span class="auth-eyebrow">YOUR JOURNEY STARTS HERE</span>
+
+        <h1>A little kindness can change a life.</h1>
+
+        <p>
+          Create your account to discover pets, submit adoption
+          applications, and follow your journey towards a new companion.
+        </p>
+
+        <div class="auth-visual-note">
+          <span class="auth-note-line"></span>
+          <span>One account. A world of second chances.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-form-section">
+      <div class="auth-form-wrapper">
+
+        <div class="auth-mobile-brand">
+          <span class="auth-brand-icon" aria-hidden="true">P</span>
+          <span class="auth-brand-name">pawfect home</span>
+        </div>
+
+        <span class="auth-eyebrow auth-eyebrow-green">
+          JOIN OUR COMMUNITY
+        </span>
+
+        <h2>Create your account.</h2>
+
+        <p class="auth-intro">
+          Enter your details to get started with Pawfect Home.
+        </p>
+
+        <div id="auth-message" class="auth-message" role="status" aria-live="polite" hidden></div>
+
+        <form id="register-form" class="auth-form" novalidate>
+
+          <div class="auth-field">
+            <label for="register-name">Full name</label>
+
+            <input type="text" id="register-name" name="name" placeholder="Enter your full name" autocomplete="name"
+              minlength="2" maxlength="80" required>
+
+            <small class="auth-field-error" data-error-for="register-name"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="register-email">Email address</label>
+
+            <input type="email" id="register-email" name="email" placeholder="you@example.com" autocomplete="email"
+              maxlength="254" required>
+
+            <small class="auth-field-error" data-error-for="register-email"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="register-phone">Phone number</label>
+
+            <input type="tel" id="register-phone" name="phone" placeholder="Enter your 10-digit mobile number"
+              autocomplete="tel" inputmode="numeric" maxlength="15" required>
+
+            <small class="auth-field-error" data-error-for="register-phone"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="register-password">Create password</label>
+
+            <div class="auth-password-wrap">
+              <input type="password" id="register-password" name="password" placeholder="At least 8 characters"
+                autocomplete="new-password" minlength="8" maxlength="128" required>
+
+              <button type="button" class="auth-password-toggle" data-toggle-password="register-password"
+                aria-label="Show password">
+                Show
+              </button>
+            </div>
+
+            <small class="auth-field-error" data-error-for="register-password"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="register-confirm-password">Confirm password</label>
+
+            <div class="auth-password-wrap">
+              <input type="password" id="register-confirm-password" name="confirmPassword"
+                placeholder="Enter your password again" autocomplete="new-password" maxlength="128" required>
+
+              <button type="button" class="auth-password-toggle" data-toggle-password="register-confirm-password"
+                aria-label="Show confirm password">
+                Show
+              </button>
+            </div>
+
+            <small class="auth-field-error" data-error-for="register-confirm-password"></small>
+          </div>
+
+          <div class="auth-consent">
+            <input type="checkbox" id="register-consent" name="consent" required>
+
+            <label for="register-consent">
+              I agree to provide accurate information and use Pawfect Home
+              responsibly during the adoption process.
+            </label>
+          </div>
+
+          <small class="auth-field-error" data-error-for="register-consent"></small>
+
+          <button type="submit" id="register-submit" class="auth-submit">
+            <span class="auth-submit-text">Create account</span>
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+
+        </form>
+
+        <div class="auth-divider">
+          <span>ALREADY A MEMBER?</span>
+        </div>
+
+        <p class="auth-switch">
+          Already have an account?
+          <a href="login.html">Log in</a>
+        </p>
+
+        <p class="auth-terms">
+          Your account helps you keep track of your adoption journey.
+          This demonstration stores account data in your browser.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="auth-footer">
+    <p>
+      &copy; <span id="auth-footer-year"></span> Pawfect Home.
+      Made for better beginnings.
+    </p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#263d30">
+
+  <title>Find a Pet | Pawfect Home</title>
+  <meta name="description" content="Explore dogs, cats, and other pets looking for loving homes with Pawfect Home.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/pets.css">
+
+  <script src="../js/pets.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Pawfect Home homepage">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span class="brand-name">pawfect<span>home</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu"
+        aria-controls="primary-navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link active" href="pets.html" aria-current="page">
+          Find a pet
+        </a>
+        <a class="nav-link nav-login" href="login.html">Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page introduction -->
+    <section class="pets-hero">
+      <div class="container">
+        <div class="pets-hero-content">
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Find your forever friend
+          </p>
+
+          <h1>A little searching.<br><em>A lot of love.</em></h1>
+
+          <p>
+            Meet the pets waiting for a place to call home.
+            Discover their personalities and find a companion
+            who fits your life.
+          </p>
+
+          <a class="pets-hero-link" href="#pet-results">
+            Explore available pets <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="pets-hero-art" aria-hidden="true">
+          <span class="pets-art-circle"></span>
+          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=850&q=85" alt="">
+          <span class="pets-art-star pets-art-star-one">✳</span>
+          <span class="pets-art-star pets-art-star-two">✳</span>
+          <span class="pets-art-label">Your new best friend</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search and filters -->
+    <section class="pet-browser" id="pet-results">
+      <div class="container">
+        <div class="browser-heading">
+          <div>
+            <p class="eyebrow">The adoption directory</p>
+            <h2>Find your <em>match.</em></h2>
+          </div>
+
+          <p class="browser-intro">
+            Take your time. The right connection is worth finding.
+          </p>
+        </div>
+
+        <div class="pet-search-panel">
+          <div class="pet-search-field">
+            <label for="pet-search">Search pets</label>
+            <div class="search-input-wrap">
+              <span aria-hidden="true">⌕</span>
+              <input type="search" id="pet-search" placeholder="Try a name, breed, or personality" autocomplete="off">
+              <button type="button" id="clear-search" class="clear-search" aria-label="Clear search" hidden>×</button>
+            </div>
+          </div>
+
+          <div class="pet-filter-field">
+            <label for="species-filter">Species</label>
+            <select id="species-filter">
+              <option value="all">All pets</option>
+              <option value="dog">Dogs</option>
+              <option value="cat">Cats</option>
+              <option value="rabbit">Rabbits</option>
+            </select>
+          </div>
+
+          <div class="pet-filter-field">
+            <label for="age-filter">Age group</label>
+            <select id="age-filter">
+              <option value="all">Any age</option>
+              <option value="young">Young (under 1 year)</option>
+              <option value="adult">Adult (1–6 years)</option>
+              <option value="senior">Senior (over 6 years)</option>
+            </select>
+          </div>
+
+          <div class="pet-filter-field">
+            <label for="sort-filter">Sort by</label>
+            <select id="sort-filter">
+              <option value="featured">Featured</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="age-asc">Youngest first</option>
+              <option value="age-desc">Oldest first</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pet-results-toolbar">
+          <p id="results-count" aria-live="polite">Loading pets...</p>
+
+          <button type="button" id="reset-filters" class="reset-filters">
+            Reset filters <span aria-hidden="true">↺</span>
+          </button>
+        </div>
+
+        <div class="active-filter-list" id="active-filters" aria-live="polite"></div>
+
+        <!-- Pet cards are rendered by pets.js -->
+        <div class="pets-grid" id="pets-grid" aria-label="Available pets" aria-busy="true"></div>
+
+        <div class="pets-empty-state" id="empty-state" hidden>
+          <span class="empty-state-icon" aria-hidden="true">♡</span>
+          <h3>No matching pets found</h3>
+          <p>
+            Try another name or adjust your filters to discover
+            more companions.
+          </p>
+          <button class="button button-primary" type="button" id="empty-reset">
+            Show all pets
+          </button>
+        </div>
+
+        <p class="directory-note">
+          Pet information and availability shown here are sample
+          records for this website prototype.
+        </p>
+      </div>
+    </section>
+
+    <!-- Compact CTA -->
+    <section class="pets-bottom-cta">
+      <div class="container">
+        <div class="pets-bottom-cta-inner">
+          <div>
+            <p class="eyebrow">A meaningful beginning</p>
+            <h2>Found someone you love?</h2>
+            <p>Read their profile and learn about the adoption process.</p>
+          </div>
+
+          <a class="button button-light" href="../index.html">
+            Back to home <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand-block">
+        <a class="brand footer-brand" href="../index.html">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span class="brand-name">pawfect<span>home</span></span>
+        </a>
+        <p>
+          Helping pets find the people and places they can call home.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h2>Explore</h2>
+        <a href="../index.html">Home</a>
+        <a href="pets.html">Find a pet</a>
+        <a href="my-applications.html">My applications</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Your account</h2>
+        <a href="login.html">Sign in</a>
+        <a href="register.html">Create an account</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="current-year"></span> Pawfect Home</p>
+      <p>Made for the love of animals.</p>
+    </div>
+  </footer>
+
+  <div class="home-toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script src="../js/auth-navigation.js" defer></script>
+</body>
+
+</html>
